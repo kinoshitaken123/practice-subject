@@ -1,0 +1,11 @@
+<td class="book-evaluation" data-score="<%= book.evaluation %>"></td>
+
+ <script>
+    $('.movie-evaluation').raty({
+       readOnly: true,
+       score: function() {
+        return $(this).attr('data-score');
+      },
+      path: '/assets/'
+    });
+    </script>

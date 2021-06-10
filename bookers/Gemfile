@@ -77,3 +77,5 @@ gem 'ransack'
 gem 'jquery-rails'
 #CSS
 gem 'bulma-rails'
+#jqueryプラグイン
+gem 'rating'
