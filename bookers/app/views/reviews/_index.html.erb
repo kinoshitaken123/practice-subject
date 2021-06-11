@@ -1,11 +1,21 @@
-<td class="book-evaluation" data-score="<%= book.evaluation %>"></td>
+<%= book.each do |book| %>
+
+<tr>
+  <td class="book-evaluation">
+  <span id ="star-rate<%=:review_star %>">"</span> 
+
+  </td> data-score="<%= book.evaluation %>"></td>
+</tr>
 
  <script>
-    $('.movie-evaluation').raty({
-       readOnly: true,
-       score: function() {
-        return $(this).attr('data-score');
-      },
-      path: '/assets/'
+    $('#star-rate<%= review_star.id %>>').raty({
+     starOn: "<%= asset_path('star-on.png') %>",  //imagesフォルダより星画像の呼び出し
+     starOff: "<%= asset_path('star-off.png') %>",
+     starHalf: "<%= asset_path('star-half.png') %>",
+     scoreName: 'book[evaluation]'  //reviewモデルのcomfortカラムに保存
+     //登録するモデル名とカラム名を記述
     });
     </script>
+    
+
+<% end %>

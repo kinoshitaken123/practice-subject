@@ -10,12 +10,13 @@
   </div>
   
   <!--星評価機能-->
-  <div class ="star-form-group" id="evaluate_stars">
+  <div class="form-group row" id="star">
     <label>Rate</label>
-     <%= f.hidden_field :book, class: 'star-title' %>
+      <%= f.hidden_field :star, id: :review_star %>
 　</div>
+　
   <script>
-    $('#evaluate_stars').raty({
+    $('#star').raty({
      starOn: "<%= asset_path('star-on.png') %>",  //imagesフォルダより星画像の呼び出し
      starOff: "<%= asset_path('star-off.png') %>",
      starHalf: "<%= asset_path('star-half.png') %>",

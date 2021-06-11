@@ -28,7 +28,29 @@
          </div>
         </td>
 
-        <td>コメント数：<%= @book.book_comments.count %></td>
+        <td>コメント数：<%= @book.book_comments.count %></td> 
+        <%= book.each do |book| %>
+
+<tr>
+  <td class="book-evaluation">
+  <span id ="star-rate<%=:review_star %>">"</span> 
+
+  </td> data-score="<%= book.evaluation %>"></td>
+</tr>
+
+ <script>
+    $('#star-rate<%= review_star.id %>>').raty({
+     starOn: "<%= asset_path('star-on.png') %>",  //imagesフォルダより星画像の呼び出し
+     starOff: "<%= asset_path('star-off.png') %>",
+     starHalf: "<%= asset_path('star-half.png') %>",
+     scoreName: 'book[evaluation]'  //reviewモデルのcomfortカラムに保存
+     //登録するモデル名とカラム名を記述
+    });
+    </script>
+    
+
+<% end %>
+        <!--<td><div id="evaluate_stars<%#= books.id%>"></div></td>-->
         
          <% if @book.user_id == current_user.id %>
             <td><%= link_to "Edit", edit_book_path(@book), class:"btn btn-success"%></td>
