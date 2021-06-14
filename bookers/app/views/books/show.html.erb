@@ -29,13 +29,12 @@
         </td>
 
         <td>コメント数：<%= @book.book_comments.count %></td> 
-        <%= book.each do |book| %>
+        <%# @book.each do |book| %>
 
 <tr>
   <td class="book-evaluation">
   <span id ="star-rate<%=:review_star %>">"</span> 
-
-  </td> data-score="<%= book.evaluation %>"></td>
+  </td> data-score="<%= @book.evaluation %>"></td>
 </tr>
 
  <script>
@@ -49,7 +48,7 @@
     </script>
     
 
-<% end %>
+
         <!--<td><div id="evaluate_stars<%#= books.id%>"></div></td>-->
         
          <% if @book.user_id == current_user.id %>
@@ -70,3 +69,5 @@
             <%= render 'book_comments/comment_form',book: @book,comment: @comment %>
         </div>
     </td>
+    </div>
+    </div>
